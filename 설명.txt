@@ -1,0 +1,14 @@
+day1 opencv 간단히
+http://mkang.faculty.unlv.edu/teaching/CS7267/code1/data_representation.html
+코드 주소
+
+https://www.dropbox.com/sh/3jfbakc46loprtb/AADH7wCm0BUjIQaV3zbpF7Ola?dl=0
+강의자료
+
+jupyter 이용한 코드
+
+day2(2020.07.21)
+scatter & histogram
+
+day3(2020.07.22)
+Euclidean Distance

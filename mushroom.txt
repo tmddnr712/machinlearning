@@ -1,0 +1,59 @@
+edible=e, poisonous=p >> 입력함
+
+bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s >> 입력함
+
+fibrous=f,grooves=g,scaly=y,smooth=s >> 입력함
+
+brown=n,buff=b,cinnamon=c,gray=g,green=r,pink=p,purple=u,red=e,white=w,yellow=y >> 입력함
+
+bruises=t,no=f >> 입력완료
+
+almond=a,anise=l,creosote=c,fishy=y,foul=f,musty=m,none=n,pungent=p,spicy=s 
+
+attached=a, descending=d, free=f, notched=n
+
+close=c,crowded=w,distant=d
+
+broad=b,narrow=n
+
+black=k,brown=n,buff=b,chocolate=h,gray=g, green=r,orange=o,pink=p,purple=u,red=e
+
+
+
+# odor
+# bruises=t,no=f
+
+mushrooms['almond'] = mushrooms['odor'].apply(lambda x: 1 if x == 'a' else 0)
+mushrooms['anise'] = mushrooms['odor'].apply(lambda x: 1 if x == 'l' else 0)
+mushrooms['creosote'] = mushrooms['odor'].apply(lambda x: 1 if x == 'c' else 0)
+mushrooms['fishy'] = mushrooms['odor'].apply(lambda x: 1 if x == 'y' else 0)
+mushrooms['foul'] = mushrooms['odor'].apply(lambda x: 1 if x == 'f' else 0)
+mushrooms['musty'] = mushrooms['odor'].apply(lambda x: 1 if x == 'm' else 0)
+mushrooms['none'] = mushrooms['odor'].apply(lambda x: 1 if x == 'n' else 0)
+mushrooms['pungent'] = mushrooms['odor'].apply(lambda x: 1 if x == 'p' else 0)
+mushrooms['spicy'] = mushrooms['odor'].apply(lambda x: 1 if x == 's' else 0)
+
+#mushrooms = mushrooms.drop('odor', axis = 1)
+print(mushrooms.head(20))
+
+
+# DataSet 준비
+features = mushrooms[['bell', 'conical', 'convex', 'flat', 'knobbed', 'sunken',
+                      'fibrous', 'grooves', 'scaly', 'smooth',
+                      'brown','buff', 'cinnamon', 'gray', 'green', 'pink', 'purple', 'red', 'white', 'yellow',
+                      'bruise', 'nonbruise',
+                      'almond', 'anise', 'creosote', 'fishy', 'foul', 'musty', 'none', 'pungent', 'spicy']]
+eat = mushrooms['class']
+
+
+# cap-shape(bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s)
+# cap-surface(fibrous=f,grooves=g,scaly=y,smooth=s)
+import numpy as np
+
+mushmom = np.array([1, 0, 0, 0, 0, 0,
+                    0, 0, 0, 1,
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    1, 0,
+                    1, 0, 0, 0, 0, 0, 0, 0, 0])
+
+sample_mushroom = np.array([mushmom])
